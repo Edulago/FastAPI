@@ -1,10 +1,22 @@
-# Uvicorn
-# rodar a api: uvicorn main:app -- reload
-# rodar a api em outra porta: uvicorn main:app --host 127.0.0.1 --port 8080 --reload
-# routes - rodas da minha ap "/api"
-# RestAPI
-# verificar a documentação - /docs
-# raise - lançar exceções de forma manual e interrompe a execução do código.
+# Uvicorn - Servidor ASGI para aplicações FastAPI
+# Comandos úteis para execução da API:
+
+# Iniciar a API com recarregamento automático ao modificar o código:
+# uvicorn main:app --reload
+
+# Iniciar a API em uma porta específica:
+# uvicorn main:app --host 127.0.0.1 --port 8080 --reload
+
+# Rotas (endpoints) da API:
+# As rotas da aplicação estão definidas sob o prefixo "/api".
+
+# Documentação da API:
+# A documentação interativa pode ser acessada através do endpoint "/docs".
+
+# Tratamento de exceções:
+# O comando 'raise' é utilizado para lançar exceções manualmente,
+# interrompendo a execução do código quando necessário.
+
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
