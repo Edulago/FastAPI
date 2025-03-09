@@ -52,3 +52,11 @@ def create_movie(movie: Movie):
     new_id = max(movies.keys(), default=0) + 1
     movies[new_id] = dict(movie)
     return {"msg" : "Movie Created", "id": new_id, "movie": movie}
+
+@app.delete("/movies/{movie_id}")
+def delete_movie(movie_id: int):
+    if movie_id in movies:
+        del movies[movie_id]
+        return {"msg": "Movie Deleted", "id": movie_id}
+
+    raise HTTPException(status_code=404, detail="Movie ID not found")
