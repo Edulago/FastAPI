@@ -60,3 +60,11 @@ def delete_movie(movie_id: int):
         return {"msg": "Movie Deleted", "id": movie_id}
 
     raise HTTPException(status_code=404, detail="Movie ID not found")
+
+@app.put("/movies/{movie_id}")
+def update_movie(movie_id: int, movie_update: Movie):
+    if movie_id in movies:
+        movies[movie_id].update(movie_update.dict(exclude_unset=True))
+        return  {"msg": "movie Updated", "id": movie_id}
+
+    raise HTTPException(status_code=404, detail="Movie not found")
